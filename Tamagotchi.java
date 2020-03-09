@@ -23,7 +23,7 @@ static final int age = 0;
  private int state;
 
 private void deathMenu() {
-	System.out.println("The tamogotchi is dying.... you have failed to feed it....);
+	System.out.println("The tamogotchi is dying.... you have failed to feed it....");
 	System.out.println ("What would you like to do with its dead body?");
 	System.out.println (" 1) Bury the Tamogotchi");	
         System.out.println (" 2) leave it where it died");
