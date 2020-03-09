@@ -7,6 +7,7 @@ public class Tamagotchi {
  
  static final int happy = 1;
  static final int asleep = 2;
+ static final int tired = 5;
  static final int done = 9;
  
  private int state;
@@ -36,7 +37,7 @@ public class Tamagotchi {
 	  int action;
 	  System.out.println("The tamagotchi is happy and looking at you.");
 	  
-	  System.out.println("Waht would you like to do?");
+	  System.out.println("What would you like to do?");
 	  System.out.println(" 1) Walk the Tamagotchi.");
 	  System.out.println(" 2) Play ball with the Tamagotchi");
 	  System.out.println(" 3) Quite program.");
@@ -52,6 +53,17 @@ public class Tamagotchi {
 		  state =  done;
 	  } //end of else if statement
   } 
+	
+   private void tiredMenu() {
+	   int action;
+	   System.out.println("The tamagotchi is looking tired and trying to keep its eyes open");
+	   
+	   System.out.println("What would you like to do?");
+	   System.out.println(" 1) Poke the tamagotchi.");
+	   System.out.println(" 2) Let the tamagotchi rest");
+	   System.out.println
+	   
+  }
 	  
 	  public void mainLoop() {
 		  state = asleep;
@@ -67,6 +79,10 @@ public class Tamagotchi {
 				  happyMenu();
 				  break;
 				  
+			  case tired:
+				  tiredMenu();
+				  break;
+					  
 				  default:
 					  System.out.println("Illegal state! This should never occur. state is: " +state);
 					  break;
