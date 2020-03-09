@@ -5,11 +5,20 @@ public class Tamagotchi {
 	
  static Scanner console = new Scanner(System.in); //Declare console for input
  
+/* Variables controlling the tamagotchi's state */
  static final int happy = 1;
  static final int asleep = 2;
  static final int death = 3;
  static final int tired = 5;
  static final int done = 9;
+/* End of tamagotchi states */
+
+/* Varaibles controlling the tamagotchi's health */
+static final int happiness = 0;
+static final int hunger = 0;
+static final int tiredness = 0;
+static final int age = 0;
+/* End of tamagotchi health */
  
  private int state;
 
