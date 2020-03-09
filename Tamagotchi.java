@@ -7,6 +7,7 @@ public class Tamagotchi {
  
  static final int happy = 1;
  static final int asleep = 2;
+ static final int hungry = 4;
  static final int done = 9;
  
  private int state;
@@ -35,10 +36,10 @@ public class Tamagotchi {
 	  int action;
 	  System.out.println("The tamagotchi is happy and looking at you.");
 	  
-	  System.out.println("Waht would you like to do?");
+	  System.out.println("What would you like to do?");
 	  System.out.println(" 1) Walk the Tamagotchi.");
 	  System.out.println(" 2) play ball with the  Tamagotchi");
-	  System.out.println(" 3) Quite program.");
+	  System.out.println(" 3) Quit program.");
 	  action = console.nextInt();
 	  
 	  if (action == 1) {
@@ -50,7 +51,28 @@ public class Tamagotchi {
 		  state =  done;
 	  } //end of else if statement
   } 
-	  
+	
+   private void hungryMenu() {
+	   int action;
+	   System.out.println("The tamagotchi is now beginning to start feeling hungry and needs feeding.");
+	
+           System.out.println("What would you like to do?");
+	   System.out.println(" 1) Feed the Tamagotchi pet food/water.");
+	   System.out.println(" 2) Let the Tamagotchi starve.");
+	   System.out.println(" 3) Quit program.");
+	   
+	   if (action ==1) {
+		   System.out.println("The Tamagotchi is now feeling happy being fed pet food/water".)
+		   state = happy;
+	   } else if (action == 2) {
+		   System.out.println("The Tamagotchi is now feeling undernourished after not being fed pet food/water".)
+	           state = sick;
+	   } else if(action =- 3) {
+		   state = done;
+	   } //end of else if statement (hungry) state for Tamagotchi
+   }
+	
+	
 	  public void mainLoop() {
 		  state = asleep;
 		  
@@ -64,7 +86,11 @@ public class Tamagotchi {
 			  case happy:
 				  happyMenu();
 				  break;
-				  
+			  
+				  case hungry:
+					hungryMenu();
+					break;
+				
 				  default:
 					  System.out.println("Illegal state! This should never occur. state is: " +state);
 					  break;
