@@ -15,7 +15,7 @@ public class Tamagotchi {
 
 private void deathMenu() {
 	System.out.println("The tamogotchi is dying.... you have failed to feed it....);
-	System.out.println ("What would you like to do with its dead body?);
+	System.out.println ("What would you like to do with its dead body?");
 	System.out.println (" 1) Bury the Tamogotchi");	
         System.out.println (" 2) leave it where it died");
 	System.out.println (" 3) eat it for lunch");		    
@@ -28,7 +28,6 @@ private void deathMenu() {
 	 System.out.println(" 1) Wake up the Tamagotchi");
 	 System.out.println(" 2) Leave the tamagotchi alone.");
 	 System.out.println(" 3) Quit program.");
-	 
 	 action = console.nextInt();
 	 
 	 if(action == 1) {
