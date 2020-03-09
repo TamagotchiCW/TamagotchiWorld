@@ -43,7 +43,7 @@ private void deathMenu() {
 		 System.out.println("The tamagotchi wakes up when you call him.");
 		 state = happy;
 	 } else if (action == 2) {
-		 System.out.println("The tamagotchi slept peacefully")
+		 System.out.println("The tamagotchi slept peacefully");
 		 state = asleep;
 	 } else if (action == 3) {
 		 state = done;
