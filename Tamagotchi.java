@@ -61,7 +61,18 @@ public class Tamagotchi {
 	   System.out.println("What would you like to do?");
 	   System.out.println(" 1) Poke the tamagotchi.");
 	   System.out.println(" 2) Let the tamagotchi rest");
-	   System.out.println
+	   System.out.println(" 3) Quit program");
+	   action = console.nextInt();
+	   
+	   if (action == 1) {
+		   System.out.println("The tamagotchi growls at you");
+		   state = angry;
+	   } else if (action == 2) {
+		   System.out.println("The tamagotchi slowly falls asleep");
+		   state = asleep;
+	   } else if (action == 3) {
+		   state = done;
+	   }
 	   
   }
 	  
