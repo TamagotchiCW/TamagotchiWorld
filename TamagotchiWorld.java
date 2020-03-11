@@ -6,9 +6,11 @@ public class TamagotchiWorld {
 	//--main method needed in all programs
 	public static void main(String[] args) {
 		String name;
-		System.out.println("What name do you want for your Tamagotchi?")
-		name = System.nextString();
-		Tamagotchi buggie = new Tamagotchi(String name);
+		final Scanner console = new Scanner(System.in);
+		System.out.println("What name do you want for your Tamagotchi?");
+		name = console.nextLine();
+		Tamagotchi buggie = new Tamagotchi();
+		buggie.nameCreation(name);
 		buggie.mainLoop();
 	}
 
