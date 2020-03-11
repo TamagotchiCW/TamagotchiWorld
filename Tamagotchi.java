@@ -4,7 +4,7 @@ import java.util.*;
 
 
 
-public class Tamagotchi {
+public class Tamagotchi(String tamagotchiName) {
 
 	
 
@@ -12,6 +12,8 @@ public class Tamagotchi {
 
  
 /* Varaibles controlling the tamagotchi's health */
+	
+static String name = tamagotchiName;
 
 static double happiness = 100;
 
