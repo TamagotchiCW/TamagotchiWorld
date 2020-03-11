@@ -4,17 +4,20 @@ import java.util.*;
 
 
 
-public class Tamagotchi(String tamagotchiName) {
+public class Tamagotchi {
 
+	public void nameCreation(String name) {
+		this.name = name;
+	}
 	
 
  static Scanner console = new Scanner(System.in); //Declare console for input
 
  
 /* Varaibles controlling the tamagotchi's health */
-	
-static String name = tamagotchiName;
 
+public String name;
+ 
 static double happiness = 100;
 
 static double hunger = 0;
@@ -38,13 +41,13 @@ static String done = "done";
 
 	 int action;
 
-	 System.out.println("The tamagotchi is sleeping. ZzzzzzZzzzzzZ....");
+	 System.out.println(name + " is sleeping. ZzzzzzZzzzzzZ....");
 
 	 System.out.println("What would you like to do?");
 
-	 System.out.println(" 1) Wake up the Tamagotchi");
+	 System.out.println(" 1) Wake up " + name);
 
-	 System.out.println(" 2) Leave the tamagotchi alone.");
+	 System.out.println(" 2) Leave " + name + " alone.");
 
 	 System.out.println(" 3) Quit program.");
 
@@ -54,11 +57,11 @@ static String done = "done";
 
 	 if(action == 1) {
 
-		 System.out.println("The tamagotchi wakes up when you call him.");
+		 System.out.println(name + " wakes up when you call him.");
 
 	 } else if (action == 2) {
 
-		 System.out.println("The tamagotchi slept peacefully");
+		 System.out.println(name + " slept peacefully");
 
 		 tiredness =- 20;
 
@@ -76,13 +79,13 @@ static String done = "done";
 
 	  int action;
 
-	  System.out.println("The tamagotchi is happy and looking at you.");
+	  System.out.println(name + " is happy and looking at you.");
 
 	  System.out.println("What would you like to do?");
 
-	  System.out.println(" 1) Walk the Tamagotchi.");
+	  System.out.println(" 1) Walk " + name);
 
-	  System.out.println(" 2) Play ball with the Tamagotchi");
+	  System.out.println(" 2) Play ball with " + name);
 
 	  System.out.println(" 3) Quite program.");
 
@@ -92,7 +95,7 @@ static String done = "done";
 
 	  if (action == 1) {
 
-		  System.out.println("The tamagotchi runs around as you take them for a walk");
+		  System.out.println(name + " runs around as you take them for a walk");
 
 		  happiness =+ 40;
 		  tiredness =+ 20;
@@ -100,7 +103,7 @@ static String done = "done";
 
 	  } else if (action == 2) {
 
-		  System.out.println("You played ball with Tamagotchi and the Tamagotchi got tired....");
+		  System.out.println("You played ball with " + name + " and the Tamagotchi got tired....");
 
 		  happiness =+ 50;
 		  tiredness =+ 40;
@@ -116,20 +119,20 @@ static String done = "done";
 
    private void hungryMenu() {
 	   int action;
-	   System.out.println("The tamagotchi is now beginning to start feeling hungry and needs feeding.");
+	   System.out.println(name + " is now beginning to start feeling hungry and needs feeding.");
 	
            System.out.println("What would you like to do?");
-	   System.out.println(" 1) Feed the Tamagotchi pet food/water.");
-	   System.out.println(" 2) Let the Tamagotchi starve.");
+	   System.out.println(" 1) Feed " + name + " pet food/water.");
+	   System.out.println(" 2) Let " + name + " starve.");
 	   System.out.println(" 3) Quit program.");
 	   
 	   if (action ==1) {
-		   System.out.println("The Tamagotchi is now feeling happy being fed pet food/water".)
+		   System.out.println(name + " is now feeling happy being fed pet food/water.");
 		   state = happy;
 	   } else if (action == 2) {
-		   System.out.println("The Tamagotchi is now feeling undernourished after not being fed pet food/water".)
+		   System.out.println(name + " is now feeling malnourished after not being fed pet food/water.");
 	           state = sick;
-	   } else if(action =- 3) {
+	   } else if(action == 3) {
 		   state = done;
 	   } //end of else if statement (hungry) state for Tamagotchi
    }
@@ -139,15 +142,15 @@ static String done = "done";
 
 	   int action;
 
-	   System.out.println("The tamagotchi is looking tired and trying to keep its eyes open");
+	   System.out.println(name + " is looking tired and trying to keep its eyes open");
 
 	   
 
 	   System.out.println("What would you like to do?");
 
-	   System.out.println(" 1) Poke the tamagotchi.");
+	   System.out.println(" 1) Poke " + name + ".");
 
-	   System.out.println(" 2) Let the tamagotchi rest");
+	   System.out.println(" 2) Let " + name + " rest");
 
 	   System.out.println(" 3) Quit program");
 
@@ -157,13 +160,13 @@ static String done = "done";
 
 	   if (action == 1) {
 
-		   System.out.println("The tamagotchi growls at you");
+		   System.out.println(name + " growls at you");
 
 		   anger =+ 25;
 
 	   } else if (action == 2) {
 
-		   System.out.println("The tamagotchi slowly falls asleep");
+		   System.out.println(name + " slowly falls asleep");
 
 		   tiredness =+ 100;
 
@@ -253,7 +256,7 @@ static String done = "done";
 
 				  default:
 
-					  System.out.println("Illegal state! This should never occur. state is: " +state);
+					  System.out.println("Illegal state! This should never occur. state is: " + state);
 
 					  break;
 
