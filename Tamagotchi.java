@@ -220,51 +220,54 @@ static String done = "done";
 		  // End of state change
 
 		  
+		  if (age = 0) {
+			sleepMenu();	  
+		  } else {
+		  	while (state!=done) {
 
-		  while (state!=done) {
-
-			  switch(state) {
+			  	switch(state) {
 
 			  
 
-			  case "asleep":
+			  	case "asleep":
 
-				  sleepMenu();
-				  age =+ 1;
+				  	sleepMenu();
+				  	age =+ 1;
 
-				  break;
+				  	break;
 
 				  
 
-			  case "happy":
+			  	case "happy":
 
-				  happyMenu();
-				  age =+ 1;
+				  	happyMenu();
+				  	age =+ 1;
 
-				  break;
+				  	break;
 			  
-			  case "hungry":
-				hungryMenu();
-				break;
+			  	case "hungry":
+					hungryMenu();
+					break;
 
-			  case "tired":
+			  	case "tired":
 
-				  tiredMenu();
-				  age =+ 1;
+				  	tiredMenu();
+				  	age =+ 1;
 
-				  break;
+				  	break;
 
-				  default:
+				  	default:
 
-					  System.out.println("Illegal state! This should never occur. state is: " + state);
+					  	System.out.println("Illegal state! This should never occur. state is: " + state);
 
-					  break;
+					  	break;
 
-			  } //end switch statement.
+			  	} //end switch statement.
 
-		  }  //end of while loop
+		  	}  //end of while loop
 
-		  System.out.println("Deactivating the Tamagotchi");
+		  	System.out.println("Deactivating the Tamagotchi");
+		  }
 
 	  }
 
