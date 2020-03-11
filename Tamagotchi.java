@@ -220,7 +220,7 @@ static String done = "done";
 		  // End of state change
 
 		  
-		  if (age = 0) {
+		  if (age == 0) {
 			sleepMenu();	  
 		  } else {
 		  	while (state!=done) {
