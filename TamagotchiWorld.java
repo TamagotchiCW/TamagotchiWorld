@@ -8,7 +8,7 @@ public class TamagotchiWorld {
 		String name;
 		System.out.println("What name do you want for your Tamagotchi?")
 		name = System.nextString();
-		Tamagotchi buggie = new Tamagotchi();
+		Tamagotchi buggie = new Tamagotchi(String name);
 		buggie.mainLoop();
 	}
 
