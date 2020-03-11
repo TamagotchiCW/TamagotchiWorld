@@ -19,7 +19,7 @@ public class Tamagotchi {
 
 static final int happiness = 100;
 
-static final int hunger = 100;
+static final int hunger = 0;
 	
 static final int anger = 0;
 
@@ -99,17 +99,17 @@ static final String done = "done";
 
 		  System.out.println("The tamagotchi runs around as you take them for a walk");
 
-		  happiness =+ 20;
+		  happiness =+ 40;
 		  tiredness =+ 20;
-		  hunger =- 10;
+		  hunger =+ 20;
 
 	  } else if (action == 2) {
 
 		  System.out.println("You played ball with Tamagotchi and the Tamagotchi got tired....");
 
-		  happiness =+ 40;
+		  happiness =+ 50;
 		  tiredness =+ 40;
-		  hunger =- 20;
+		  hunger =+ 20;
 
 	  } else if(action == 3) {
 
@@ -151,7 +151,7 @@ static final String done = "done";
 
 		   System.out.println("The tamagotchi slowly falls asleep");
 
-		   tiredness =- 100;
+		   tiredness =+ 100;
 
 	   } else if (action == 3) {
 
@@ -167,13 +167,37 @@ static final String done = "done";
 	
 	  public void mainLoop() {
 		  
-		  if ()
+		  // Start of value calibration
+		  if (happiness > 100) {
+			  happiness = 100;
+		  } else if (happiness < 0) {
+			  happiness = 0;
+		  }
+		  if (hunger > 100) {
+			  hunger = 100;
+		  } else if (hunger < 0) {
+			  hunger = 0;
+		  }
+		  if (anger > 100) {
+			  anger = 100;
+		  } else if (anger < 0) {
+			  anger = 0;
+		  }
+		  if (tiredness > 100) {
+			  tiredness = 100;
+		  } else if (tiredness < 0) {
+			  tiredness = 0;
+		  }
+		  // End of value calibration
+		  
 
 		  if (happiness => 60 && anger < 50) {
 			  state = "happy";
 		  } else if (tiredness => 70) {
 			  state = "tired";
-		  } else if ()
+		  } else if (tiredness == 100) {
+			  state = "asleep";
+		  }
 
 		  
 		  
