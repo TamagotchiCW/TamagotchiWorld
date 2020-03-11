@@ -184,76 +184,76 @@ static String done = "done";
 	
 	  public void mainLoop() {
 		  
-		  // Start of value calibration
-		  if (happiness > 100) {
-			  happiness = 100;
-		  } else if (happiness < 0) {
-			  happiness = 0;
-		  }
-		  if (hunger > 100) {
-			  hunger = 100;
-		  } else if (hunger < 0) {
-			  hunger = 0;
-		  }
-		  if (anger > 100) {
-			  anger = 100;
-		  } else if (anger < 0) {
-			  anger = 0;
-		  }
-		  if (tiredness > 100) {
-			  tiredness = 100;
-		  } else if (tiredness < 0) {
-			  tiredness = 0;
-		  }
-		  // End of value calibration
-		  
-		  // Start of state change
-		  if (happiness >= 60 & anger < 50) {
-			  state = "happy";
-		  } else if (tiredness >= 70) {
-			  state = "tired";
-		  } else if (tiredness == 100) {
-			  state = "asleep";
-		  } else {
-			  state = "asleep";
-		  }
-		  // End of state change
-
-		  
 		  if (age == 0) {
 			sleepMenu();	  
-		  } else {
-		  	while (state!=done) {
+		  }		  
+			  // Start of value calibration
+			  if (happiness > 100) {
+				  happiness = 100;
+			  } else if (happiness < 0) {
+				  happiness = 0;
+			  }
+			  if (hunger > 100) {
+				  hunger = 100;
+			  } else if (hunger < 0) {
+				  hunger = 0;
+			  }
+			  if (anger > 100) {
+				  anger = 100;
+			  } else if (anger < 0) {
+				  anger = 0;
+			  }
+			  if (tiredness > 100) {
+				  tiredness = 100;
+			  } else if (tiredness < 0) {
+				  tiredness = 0;
+			  } else {
+				  state = "tired";
+			  }
+			  // End of value calibration
+			  
+			  // Start of state change
+			  if (happiness >= 60 & anger < 50) {
+				  state = "happy";
+			  } else if (tiredness >= 70) {
+				  state = "tired";
+			  } else if (tiredness == 100) {
+				  state = "asleep";
+			  } else {
+				  state = "asleep";
+			  }
+			  // End of state change
+			  
+		  	while (state!="done") {
 
 			  	switch(state) {
 
 			  
 
 			  	case "asleep":
-
-				  	sleepMenu();
+			  		
 				  	age =+ 1;
-
+				  	sleepMenu();
 				  	break;
 
 				  
 
 			  	case "happy":
-
-				  	happyMenu();
+			  		
 				  	age =+ 1;
-
+				  	happyMenu();
 				  	break;
 			  
 			  	case "hungry":
+			  		
+				  	age =+ 1;
 					hungryMenu();
 					break;
 
 			  	case "tired":
-
-				  	tiredMenu();
+			  		
 				  	age =+ 1;
-
+				  	tiredMenu();
 				  	break;
 
 				  	default:
@@ -268,11 +268,5 @@ static String done = "done";
 
 		  	System.out.println("Deactivating the Tamagotchi");
 		  }
-
-	  }
-
-  
-
- 
 
 }
