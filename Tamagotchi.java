@@ -12,39 +12,28 @@ public class Tamagotchi {
 
  
 
-/* Variables controlling the tamagotchi's state */
-
- static final int happy = 1;
-
- static final int asleep = 2;
-
- static final int death = 3;
- 
- static final int angry = 4;
-
- static final int tired = 5;
-
- static final int done = 9;
-
-/* End of tamagotchi states */
 
 
 
 /* Varaibles controlling the tamagotchi's health */
 
-static final int happiness = 0;
+static double happiness = 100;
 
-static final int hunger = 0;
+static double hunger = 0;
+	
+static double anger = 0;
 
-static final int tiredness = 0;
+static double tiredness = 0;
 
-static final int age = 0;
+static double age = 0;
+	
+static String done = "done";
 
 /* End of tamagotchi health */
 
  
 
- private int state;
+ private String state;
 
 
  
@@ -70,13 +59,11 @@ static final int age = 0;
 
 		 System.out.println("The tamagotchi wakes up when you call him.");
 
-		 state = happy;
-
 	 } else if (action == 2) {
 
 		 System.out.println("The tamagotchi slept peacefully");
 
-		 state = asleep;
+		 tiredness =- 20;
 
 	 } else if (action == 3) {
 
@@ -112,13 +99,17 @@ static final int age = 0;
 
 		  System.out.println("The tamagotchi runs around as you take them for a walk");
 
-		  state = happy;
+		  happiness =+ 40;
+		  tiredness =+ 20;
+		  hunger =+ 20;
 
 	  } else if (action == 2) {
 
 		  System.out.println("You played ball with Tamagotchi and the Tamagotchi got tired....");
 
-		  state = tired;
+		  happiness =+ 50;
+		  tiredness =+ 40;
+		  hunger =+ 20;
 
 	  } else if(action == 3) {
 
@@ -154,13 +145,13 @@ static final int age = 0;
 
 		   System.out.println("The tamagotchi growls at you");
 
-		   state = angry;
+		   anger =+ 25;
 
 	   } else if (action == 2) {
 
 		   System.out.println("The tamagotchi slowly falls asleep");
 
-		   state = asleep;
+		   tiredness =+ 100;
 
 	   } else if (action == 3) {
 
@@ -172,11 +163,44 @@ static final int age = 0;
 
   }
 
-	  
-
+	  /* Code to change later */
+	
 	  public void mainLoop() {
-
-		  state = asleep;
+		  
+		  // Start of value calibration
+		  if (happiness > 100) {
+			  happiness = 100;
+		  } else if (happiness < 0) {
+			  happiness = 0;
+		  }
+		  if (hunger > 100) {
+			  hunger = 100;
+		  } else if (hunger < 0) {
+			  hunger = 0;
+		  }
+		  if (anger > 100) {
+			  anger = 100;
+		  } else if (anger < 0) {
+			  anger = 0;
+		  }
+		  if (tiredness > 100) {
+			  tiredness = 100;
+		  } else if (tiredness < 0) {
+			  tiredness = 0;
+		  }
+		  // End of value calibration
+		  
+		  // Start of state change
+		  if (happiness >= 60 & anger < 50) {
+			  state = "happy";
+		  } else if (tiredness >= 70) {
+			  state = "tired";
+		  } else if (tiredness == 100) {
+			  state = "asleep";
+		  } else {
+			  state = "asleep";
+		  }
+		  // End of state change
 
 		  
 
@@ -186,24 +210,27 @@ static final int age = 0;
 
 			  
 
-			  case asleep:
+			  case "asleep":
 
 				  sleepMenu();
+				  age =+ 1;
 
 				  break;
 
 				  
 
-			  case happy:
+			  case "happy":
 
 				  happyMenu();
+				  age =+ 1;
 
 				  break;
 
 
-			  case tired:
+			  case "tired":
 
 				  tiredMenu();
+				  age =+ 1;
 
 				  break;
 
