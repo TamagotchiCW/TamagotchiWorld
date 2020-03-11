@@ -26,8 +26,6 @@ static double age = 0;
 static String done = "done";
 
 /* End of tamagotchi health */
-
->>>>>>> master
  
 
  private String state;
@@ -86,7 +84,6 @@ static String done = "done";
 
 	  System.out.println(" 3) Quite program.");
 
->>>>>>> master
 	  action = console.nextInt();
 
 	  
@@ -241,9 +238,9 @@ static String done = "done";
 
 				  break;
 			  
-				  case hungry:
-					hungryMenu();
-					break;
+			  case "hungry":
+				hungryMenu();
+				break;
 
 			  case "tired":
 
