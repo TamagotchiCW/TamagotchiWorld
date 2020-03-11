@@ -17,17 +17,17 @@ public class Tamagotchi {
 
 /* Varaibles controlling the tamagotchi's health */
 
-static final int happiness = 100;
+static double happiness = 100;
 
-static final int hunger = 0;
+static double hunger = 0;
 	
-static final int anger = 0;
+static double anger = 0;
 
-static final int tiredness = 0;
+static double tiredness = 0;
 
-static final int age = 0;
+static double age = 0;
 	
-static final String done = "done";
+static String done = "done";
 
 /* End of tamagotchi health */
 
@@ -190,30 +190,19 @@ static final String done = "done";
 		  }
 		  // End of value calibration
 		  
-
-		  if (happiness => 60 && anger < 50) {
+		  // Start of state change
+		  if (happiness >= 60 & anger < 50) {
 			  state = "happy";
-		  } else if (tiredness => 70) {
+		  } else if (tiredness >= 70) {
 			  state = "tired";
 		  } else if (tiredness == 100) {
 			  state = "asleep";
+		  } else {
+			  state = "asleep";
 		  }
+		  // End of state change
 
 		  
-		  
-		  
-		  
-		/*  	static final int happiness = 100;
-
-			static final int hunger = 100;
-	
-			static final int anger = 0;
-
-			static final int tiredness = 0;
-
-			static final int age = 0;
-	
-			static final int done = 9; */
 
 		  while (state!=done) {
 
@@ -224,6 +213,7 @@ static final String done = "done";
 			  case "asleep":
 
 				  sleepMenu();
+				  age =+ 1;
 
 				  break;
 
@@ -232,6 +222,7 @@ static final String done = "done";
 			  case "happy":
 
 				  happyMenu();
+				  age =+ 1;
 
 				  break;
 
@@ -239,6 +230,7 @@ static final String done = "done";
 			  case "tired":
 
 				  tiredMenu();
+				  age =+ 1;
 
 				  break;
 
