@@ -61,19 +61,19 @@ static String done = "done";
 
 		 System.out.println(name + " wakes up when you call him.");
 		 
-		 happiness =+ 20;
+		 happiness += 20;
 
 	 } else if (action == 2) {
 
 		 System.out.println(name + " slept peacefully");
 
-		 tiredness =- 20;
+		 tiredness -= 20;
 
 	 } else if (action == 3) {
 		 
 		 System.out.println(name + "glares at you with half asleep eyes");
 		 
-		 anger =+ 20;
+		 anger += 20;
 		 
 	 } else if (action == 4) {
 
@@ -111,30 +111,30 @@ static String done = "done";
 
 		  System.out.println(name + " runs around as you take them for a walk");
 
-		  happiness =+ 40;
-		  tiredness =+ 20;
-		  hunger =+ 20;
+		  happiness += 40;
+		  tiredness += 20;
+		  hunger += 20;
 
 	  } else if (action == 2) {
 
 		  System.out.println("You played ball with " + name + " and the Tamagotchi got tired....");
 
-		  happiness =+ 50;
-		  tiredness =+ 40;
-		  hunger =+ 20;
+		  happiness += 50;
+		  tiredness += 40;
+		  hunger += 20;
 
 	  } else if (action == 3) {
 		  
 		  System.out.println("You fed " + name + ". They looked to be enjoying it");
 		  
-		  hunger =- 40;
+		  hunger += 40;
 		  
-	  } else if (action == 4)
+	  } else if (action == 4) {
 		  
 		  System.out.println(name + " stared up at you with sad eyes");
 		  
-		  anger =+ 30;
-		  hunger =+ 20;
+		  anger += 30;
+		  hunger += 20;
 		  
 	  } else if (action == 5) {
 
@@ -144,7 +144,6 @@ static String done = "done";
 
 	  } //end of else if statement
 
-  } 
 
    private void hungryMenu() {
 	   int action;
@@ -164,13 +163,13 @@ static String done = "done";
 		   
 		   System.out.println(name + " is now feeling happy being fed pet food/water.");
 		   
-		   hunger =- 40;
+		   hunger -= 40;
 		   
 	   } else if (action == 2) {
 		   
 		   System.out.println(name + " is now feeling malnourished after not being fed pet food/water.");
 		   
-	           hunger =+ 20;
+	           hunger += 20;
 		   
 	   } else if(action == 3) {
 		   
@@ -205,19 +204,19 @@ static String done = "done";
 
 		   System.out.println(name + " growls at you");
 
-		   anger =+ 25;
+		   anger += 25;
 
 	   } else if (action == 2) {
 
 		   System.out.println(name + " slowly falls asleep");
 
-		   tiredness =+ 100;
+		   tiredness += 100;
 
 	   } else if (action == 3) {
 		   
 		   System.out.println(name + " quietly eats the food");
 		   
-		   hunger =+ 20;
+		   hunger += 20;
 		   
 	   } else if (action == 4) {
 
@@ -227,7 +226,7 @@ static String done = "done";
 	   
 	   
 }
-	Private void runAway() {
+	private void runAway() {
 		
 		System.out.println ("Your pet got too angry and has run away!");
 		
@@ -236,7 +235,7 @@ static String done = "done";
 		state = done;
 	}
 
-	Private void deathMenu() {
+	private void deathMenu() {
 		
 		int action;
 	
@@ -286,62 +285,63 @@ static String done = "done";
 
 	   
 
-  }
-
 	  /* Code to change later */
 	
 	  public void mainLoop() {
-		  
-		  if (age == 0) {
-			sleepMenu();
-			age += 1;
-		  }		  
-			  // Start of value calibration
-			  if (happiness > 100) {
-				  happiness = 100;
-			  } else if (happiness < 0) {
-				  happiness = 0;
-			  }
-			  if (hunger > 100) {
-				  hunger = 100;
-			  } else if (hunger == 80) {
-				  System.out.println(name + " is very hungry, if you don't feed him he might die.")
-	  		  } else if (hunger < 0) {
-				  hunger = 0;
-			  }
-			  if (anger > 100) {
-				  anger = 100;
-			  } else if (anger < 0) {
-				  anger = 0;
-			  }
-			  if (tiredness > 100) {
-				  tiredness = 100;
-			  } else if (tiredness < 0) {
-				  tiredness = 0;
-			  } else {
-				  state = "tired";
-			  }
-			  // End of value calibration
-			  
-			  // Start of state change
-			  if (happiness >= 60 & anger < 50) {
-				  state = "happy";
-			  } else if (tiredness >= 70) {
-				  state = "tired";
-			  } else if (tiredness == 100) {
-				  state = "asleep";
-			  } else if (hunger == 80) {
-				  state = "hungry";
-	  		  } else if (hunger >= 100) {
-				  deathMenu();  
-			  } else if (anger = 100) {
-				  runAway();  
-			  } else {
-				  state = "asleep";
-			  }
-			  // End of state change
 			  
 		  	while (state!="done") {
+		  		
+				  if (age == 0) {
+						sleepMenu();
+						age += 1;
+					  }		  
+						  // Start of value calibration
+						  if (happiness > 100) {
+							  happiness = 100;
+						  } else if (happiness < 0) {
+							  happiness = 0;
+						  }
+						  if (hunger > 100) {
+							  hunger = 100;
+						  } else if (hunger == 80) {
+							  System.out.println(name + " is very hungry, if you don't feed him he might die.");
+				  		  } else if (hunger < 0) {
+							  hunger = 0;
+						  }
+						  if (anger > 100) {
+							  anger = 100;
+						  } else if (anger < 0) {
+							  anger = 0;
+						  }
+						  if (tiredness > 100) {
+							  tiredness = 100;
+						  } else if (tiredness < 0) {
+							  tiredness = 0;
+						  } else {
+							  state = "tired";
+						  }
+						  // End of value calibration
+						  System.out.println(anger);
+						  System.out.println(happiness);
+						  System.out.println(hunger);
+						  System.out.println(tiredness);
+						  // Start of state change
+						  if (tiredness == 100) {
+							  state = "asleep";
+						  } else if (tiredness >= 70) {
+							  state = "tired";
+						  } else if (hunger >= 100) {
+							  deathMenu();
+						  } else if (hunger == 80) {
+							  state = "hungry";
+				  		  } else if (anger == 100) {
+				  			  runAway(); 
+						  } else if (happiness >= 60 && anger < 50) {
+							  state = "happy";  
+						  } else {
+							  state = "asleep";
+						  }
+						  // End of state change
 
 			  	switch(state) {
 
@@ -349,7 +349,7 @@ static String done = "done";
 
 			  	case "asleep":
 			  		
-				  	age =+ 1;
+				  	age += 1;
 				  	sleepMenu();
 				  	break;
 
@@ -357,19 +357,19 @@ static String done = "done";
 
 			  	case "happy":
 			  		
-				  	age =+ 1;
+				  	age += 1;
 				  	happyMenu();
 				  	break;
 			  
 			  	case "hungry":
 			  		
-				  	age =+ 1;
+				  	age += 1;
 					hungryMenu();
 					break;
 
 			  	case "tired":
 			  		
-				  	age =+ 1;
+				  	age += 1;
 				  	tiredMenu();
 				  	break;
 
