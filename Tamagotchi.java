@@ -232,16 +232,16 @@ static String done = "done";
 			  // End of value calibration
 			  
 			  // Start of state change
-			  if (happiness >= 60 & anger < 50) {
-				  state = "happy";
+			  if (tiredness == 100) {
+				  state = "asleep";
 			  } else if (tiredness >= 70) {
 				  state = "tired";
-			  } else if (tiredness == 100) {
-				  state = "asleep";
 			  } else if (hunger >= 25) {
-				  deathMenu();  
-			  } else if (anger = 100) {
+				  deathMenu();
+			  } else if (anger = 100)  {
 				  runAway();  
+			  } else if (happiness >= 60 & anger < 50) {
+				  state = "happy";  
 			  } else {
 				  state = "asleep";
 			  }
