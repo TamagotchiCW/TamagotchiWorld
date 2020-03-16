@@ -188,10 +188,32 @@ static String done = "done";
 	
 		System.out.println ("The tamagotchi is dying. :( *cry* *sob *sob*");
 		System.out.println ("What would you like to do?");
-		System.out.println (" 1) give the pet its last meal before it dies")
-        	System.out.println (" 2) let it die all alone")
-		System.out.println (" 3) just leave it there")
-		System.out.println (" 4) wait for it to die then burry it")
+		System.out.println (" 1) give the pet its last meal before it dies");
+        	System.out.println (" 2) let it die all alone");
+		System.out.println (" 3) just leave it there");
+		System.out.println (" 4) wait for it to die then bury it");
+			
+			action = console.nextInt();
+		if (action == 1) {
+			System.out.println ("you feed" + name + " its last meal as it slowly dies in your arms");
+			state = done;
+			
+		} else if (action == 2) {
+			System.out.println ("you let" + name + "die all alone." + name + "looks very sad as it dies");
+			state = done;
+			
+		} else if (action == 3) {
+			System.out.println ("You leave" + name + "there to die and eventually rot.");
+			state = done;
+			
+		}else if (action == 4) {
+			System.out.println ( "You wait for" + name + "to die, then bury it using a spade.");
+			state = done;
+		}
+			
+		
+		
+			
 	   }
 
 	   
@@ -232,16 +254,16 @@ static String done = "done";
 			  // End of value calibration
 			  
 			  // Start of state change
-			  if (tiredness == 100) {
-				  state = "asleep";
+			  if (happiness >= 60 & anger < 50) {
+				  state = "happy";
 			  } else if (tiredness >= 70) {
 				  state = "tired";
+			  } else if (tiredness == 100) {
+				  state = "asleep";
 			  } else if (hunger >= 25) {
-				  deathMenu();
-			  } else if (anger = 100)  {
+				  deathMenu();  
+			  } else if (anger = 100) {
 				  runAway();  
-			  } else if (happiness >= 60 & anger < 50) {
-				  state = "happy";  
 			  } else {
 				  state = "asleep";
 			  }
