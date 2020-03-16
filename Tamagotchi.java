@@ -203,7 +203,8 @@ static String done = "done";
 	  public void mainLoop() {
 		  
 		  if (age == 0) {
-			sleepMenu();	  
+			sleepMenu();
+			age += 1;
 		  }		  
 			  // Start of value calibration
 			  if (happiness > 100) {
