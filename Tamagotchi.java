@@ -175,6 +175,24 @@ static String done = "done";
 		   state = done;
 
 	   }
+	   
+	   
+}
+	Private void runAway() {
+		System.out.println ("Your pet got too angry and has run away!");
+		System.out.println ("Theres nothing you can do, try look after your pet better next time.");
+	}
+
+	Private void deathMenu() {
+		int action;
+	
+		System.out.println ("The tamagotchi is dying. :( *cry* *sob *sob*");
+		System.out.println ("What would you like to do?");
+		System.out.println (" 1) give the pet its last meal before it dies")
+        	System.out.println (" 2) let it die all alone")
+		System.out.println (" 3) just leave it there")
+		System.out.println (" 4) wait for it to die then burry it")
+	   }
 
 	   
 
@@ -219,6 +237,10 @@ static String done = "done";
 				  state = "tired";
 			  } else if (tiredness == 100) {
 				  state = "asleep";
+			  } else if (hunger >= 25) {
+				  deathMenu();  
+			  } else if (anger = 100) {
+				  runAway();  
 			  } else {
 				  state = "asleep";
 			  }
