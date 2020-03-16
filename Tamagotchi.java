@@ -228,36 +228,54 @@ static String done = "done";
 	   
 }
 	Private void runAway() {
+		
 		System.out.println ("Your pet got too angry and has run away!");
+		
 		System.out.println ("Theres nothing you can do, try look after your pet better next time.");
+		
 		state = done;
 	}
 
 	Private void deathMenu() {
+		
 		int action;
 	
 		System.out.println ("The tamagotchi is dying. :( *cry* *sob *sob*");
+		
 		System.out.println ("What would you like to do?");
+		
 		System.out.println (" 1) give the pet its last meal before it dies");
+		
         	System.out.println (" 2) let it die all alone");
+		
 		System.out.println (" 3) just leave it there");
+		
 		System.out.println (" 4) wait for it to die then bury it");
 			
 			action = console.nextInt();
+		
 		if (action == 1) {
+			
 			System.out.println ("you feed" + name + " its last meal as it slowly dies in your arms");
+			
 			state = done;
 			
 		} else if (action == 2) {
+			
 			System.out.println ("you let" + name + "die all alone." + name + "looks very sad as it dies");
+			
 			state = done;
 			
 		} else if (action == 3) {
+			
 			System.out.println ("You leave" + name + "there to die and eventually rot.");
+			
 			state = done;
 			
 		}else if (action == 4) {
+			
 			System.out.println ( "You wait for" + name + "to die, then bury it using a spade.");
+			
 			state = done;
 		}
 			
