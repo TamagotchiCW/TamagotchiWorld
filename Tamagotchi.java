@@ -148,20 +148,32 @@ static String done = "done";
 
    private void hungryMenu() {
 	   int action;
-	   System.out.println(name + " is now beginning to start feeling hungry and needs feeding.");
+	   System.out.println(name + " is now starting to feeling hungry and needs feeding.");
 	
            System.out.println("What would you like to do?");
+	   
 	   System.out.println(" 1) Feed " + name + " pet food/water.");
+	   
 	   System.out.println(" 2) Let " + name + " starve.");
+	   
 	   System.out.println(" 3) Quit program.");
 	   
+	   action = console.nextInt();
+	   
 	   if (action ==1) {
+		   
 		   System.out.println(name + " is now feeling happy being fed pet food/water.");
-		   state = happy;
+		   
+		   hunger =- 40;
+		   
 	   } else if (action == 2) {
+		   
 		   System.out.println(name + " is now feeling malnourished after not being fed pet food/water.");
-	           state = sick;
+		   
+	           hunger =+ 20;
+		   
 	   } else if(action == 3) {
+		   
 		   state = done;
 	   } //end of else if statement (hungry) state for Tamagotchi
    }
@@ -179,9 +191,11 @@ static String done = "done";
 
 	   System.out.println(" 1) Poke " + name + ".");
 
-	   System.out.println(" 2) Let " + name + " rest");
+	   System.out.println(" 2) Let " + name + " rest.");
+	   
+	   System.out.println(" 3) Give " + name + "something to eat.");
 
-	   System.out.println(" 3) Quit program");
+	   System.out.println(" 3) Quit program.");
 
 	   action = console.nextInt();
 
@@ -200,6 +214,12 @@ static String done = "done";
 		   tiredness =+ 100;
 
 	   } else if (action == 3) {
+		   
+		   System.out.println(name + " quietly eats the food");
+		   
+		   hunger =+ 20;
+		   
+	   } else if (action == 4) {
 
 		   state = done;
 
