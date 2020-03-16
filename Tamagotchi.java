@@ -48,8 +48,10 @@ static String done = "done";
 	 System.out.println(" 1) Wake up " + name);
 
 	 System.out.println(" 2) Leave " + name + " alone.");
+	 
+	 System.out.println(" 3) Shake " + name + " awake");
 
-	 System.out.println(" 3) Quit program.");
+	 System.out.println(" 4) Quit program.");
 
 	 action = console.nextInt();
 
@@ -58,6 +60,8 @@ static String done = "done";
 	 if(action == 1) {
 
 		 System.out.println(name + " wakes up when you call him.");
+		 
+		 happiness =+ 20;
 
 	 } else if (action == 2) {
 
@@ -66,6 +70,12 @@ static String done = "done";
 		 tiredness =- 20;
 
 	 } else if (action == 3) {
+		 
+		 System.out.println(name + "glares at you with half asleep eyes");
+		 
+		 anger =+ 20;
+		 
+	 } else if (action == 4) {
 
 		 state = done;
 
@@ -86,8 +96,12 @@ static String done = "done";
 	  System.out.println(" 1) Walk " + name);
 
 	  System.out.println(" 2) Play ball with " + name);
+	  
+	  System.out.println(" 3) Feed " + name);
+	  
+	  System.out.println(" 4) Refuse to play");
 
-	  System.out.println(" 3) Quite program.");
+	  System.out.println(" 5) Quite program.");
 
 	  action = console.nextInt();
 
@@ -109,9 +123,24 @@ static String done = "done";
 		  tiredness =+ 40;
 		  hunger =+ 20;
 
-	  } else if(action == 3) {
+	  } else if (action == 3) {
+		  
+		  System.out.println("You fed " + name + ". They looked to be enjoying it");
+		  
+		  hunger =- 40;
+		  
+	  } else if (action == 4)
+		  
+		  System.out.println(name + " stared up at you with sad eyes");
+		  
+		  anger =+ 30;
+		  hunger =+ 20;
+		  
+	  } else if (action == 5) {
 
 		  state =  done;
+		  
+	  }
 
 	  } //end of else if statement
 
@@ -181,6 +210,7 @@ static String done = "done";
 	Private void runAway() {
 		System.out.println ("Your pet got too angry and has run away!");
 		System.out.println ("Theres nothing you can do, try look after your pet better next time.");
+		state = done;
 	}
 
 	Private void deathMenu() {
@@ -236,7 +266,9 @@ static String done = "done";
 			  }
 			  if (hunger > 100) {
 				  hunger = 100;
-			  } else if (hunger < 0) {
+			  } else if (hunger == 80) {
+				  System.out.println(name + " is very hungry, if you don't feed him he might die.")
+	  		  } else if (hunger < 0) {
 				  hunger = 0;
 			  }
 			  if (anger > 100) {
@@ -260,7 +292,9 @@ static String done = "done";
 				  state = "tired";
 			  } else if (tiredness == 100) {
 				  state = "asleep";
-			  } else if (hunger >= 25) {
+			  } else if (hunger == 80) {
+				  state = "hungry";
+	  		  } else if (hunger >= 100) {
 				  deathMenu();  
 			  } else if (anger = 100) {
 				  runAway();  
