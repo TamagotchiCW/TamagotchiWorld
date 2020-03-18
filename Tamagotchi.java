@@ -21,8 +21,6 @@ public String name;
 static double happiness = 100;
 
 static double hunger = 0;
-	
-static double anger = 0;
 
 static double tiredness = 0;
 
@@ -41,7 +39,10 @@ static String done = "done";
 
 	 int action;
 
-	 System.out.println(name + " is sleeping. ZzzzzzZzzzzzZ....");
+	 System.out.println("        ZzzzZzzzZzzz/\\__/\\");
+	 System.out.println(name + " is sleeping.  ( '= '  )S ");
+	 System.out.println("                     Vv  Vv    ");
+	
 
 	 System.out.println("What would you like to do?");
 
@@ -62,18 +63,21 @@ static String done = "done";
 		 System.out.println(name + " wakes up when you call him.");
 		 
 		 happiness += 20;
+		 tiredness -= 20;
 
 	 } else if (action == 2) {
 
 		 System.out.println(name + " slept peacefully");
 
-		 tiredness -= 20;
+		 tiredness -= 40;
+		 sleepMenu();
 
 	 } else if (action == 3) {
 		 
-		 System.out.println(name + "glares at you with half asleep eyes");
+		 System.out.println(name + " glares at you with half asleep eyes");
 		 
-		 anger += 20;
+		 happiness -= 20;
+		 tiredness -= 40;
 		 
 	 } else if (action == 4) {
 
@@ -101,7 +105,7 @@ static String done = "done";
 	  
 	  System.out.println(" 4) Refuse to play");
 
-	  System.out.println(" 5) Quite program.");
+	  System.out.println(" 5) Quit program.");
 
 	  action = console.nextInt();
 
@@ -111,7 +115,7 @@ static String done = "done";
 
 		  System.out.println(name + " runs around as you take them for a walk");
 
-		  happiness += 40;
+		  happiness += 20;
 		  tiredness += 20;
 		  hunger += 20;
 
@@ -119,21 +123,21 @@ static String done = "done";
 
 		  System.out.println("You played ball with " + name + " and the Tamagotchi got tired....");
 
-		  happiness += 50;
+		  happiness += 40;
 		  tiredness += 40;
 		  hunger += 20;
 
 	  } else if (action == 3) {
 		  
-		  System.out.println("You fed " + name + ". They looked to be enjoying it");
+		  System.out.println("You fed " + name + ". he looked to be enjoying it");
 		  
-		  hunger += 40;
+		  hunger -= 40;
 		  
 	  } else if (action == 4) {
 		  
 		  System.out.println(name + " stared up at you with sad eyes");
 		  
-		  anger += 30;
+		  happiness -= 20;
 		  hunger += 20;
 		  
 	  } else if (action == 5) {
@@ -161,15 +165,17 @@ static String done = "done";
 	   
 	   if (action ==1) {
 		   
-		   System.out.println(name + " is now feeling happy being fed pet food/water.");
+		   System.out.println(name + " is feeling happier and less hungry after being fed pet food/water.");
 		   
 		   hunger -= 40;
+		   happiness += 20;
 		   
 	   } else if (action == 2) {
 		   
-		   System.out.println(name + " is now feeling malnourished after not being fed pet food/water.");
+		   System.out.println(name + " is feeling more hungry after not being fed pet food/water.");
 		   
 	           hunger += 20;
+	           happiness -= 20;
 		   
 	   } else if(action == 3) {
 		   
@@ -192,9 +198,9 @@ static String done = "done";
 
 	   System.out.println(" 2) Let " + name + " rest.");
 	   
-	   System.out.println(" 3) Give " + name + "something to eat.");
+	   System.out.println(" 3) Give " + name + " something to eat.");
 
-	   System.out.println(" 3) Quit program.");
+	   System.out.println(" 4) Quit program.");
 
 	   action = console.nextInt();
 
@@ -204,19 +210,24 @@ static String done = "done";
 
 		   System.out.println(name + " growls at you");
 
-		   anger += 25;
+		   happiness -= 20;
+		   tiredness -= 20;
+		   hunger += 20;
 
 	   } else if (action == 2) {
 
 		   System.out.println(name + " slowly falls asleep");
 
 		   tiredness += 100;
+		   hunger += 20;
 
 	   } else if (action == 3) {
 		   
 		   System.out.println(name + " quietly eats the food");
 		   
-		   hunger += 20;
+		   happiness += 20;
+		   hunger -= 20;
+		   tiredness += 20;
 		   
 	   } else if (action == 4) {
 
@@ -226,6 +237,54 @@ static String done = "done";
 	   
 	   
 }
+   
+	private void angerMenu() {
+		
+		int action;
+		
+		System.out.println(name + " is looking annoyed at you");
+		
+		
+		System.out.println("What would you like to do?");
+		
+		System.out.println("1 ) Make up with " + name);
+		
+		System.out.println("2 ) Ignore " + name + ".");
+		
+		System.out.println("3 ) Give " + name + " a treat");
+		
+		System.out.println("4 ) Quit program");
+		
+		action = console.nextInt();
+		
+	if (action == 1) {
+			
+			System.out.println ("You made up with " + name + " and is happier");
+			
+			happiness += 40;
+			hunger += 20;
+			
+		} else if (action == 2) {
+			
+			System.out.println ("You've ignored " + name + " and is annoyed");
+			
+			happiness -= 40;
+			hunger += 20;
+			
+		} else if (action == 3) {
+			
+			System.out.println ("You gave " + name + " a treat and is now happier and less hungry");
+			
+			hunger -= 20;
+			happiness += 40;
+			
+		}else if (action == 4) {
+		
+			state = done;
+		}
+	}
+	
+	
 	private void runAway() {
 		
 		System.out.println ("Your pet got too angry and has run away!");
@@ -255,25 +314,25 @@ static String done = "done";
 		
 		if (action == 1) {
 			
-			System.out.println ("you feed" + name + " its last meal as it slowly dies in your arms");
+			System.out.println ("you feed " + name + " its last meal as it slowly dies in your arms");
 			
 			state = done;
 			
 		} else if (action == 2) {
 			
-			System.out.println ("you let" + name + "die all alone." + name + "looks very sad as it dies");
+			System.out.println ("you let " + name + " die all alone." + name + " looks very sad as it dies");
 			
 			state = done;
 			
 		} else if (action == 3) {
 			
-			System.out.println ("You leave" + name + "there to die and eventually rot.");
+			System.out.println ("You leave " + name + " there to die and eventually rot.");
 			
 			state = done;
 			
 		}else if (action == 4) {
 			
-			System.out.println ( "You wait for" + name + "to die, then bury it using a spade.");
+			System.out.println ( "You wait for " + name + " to die, then bury it using a spade.");
 			
 			state = done;
 		}
@@ -294,7 +353,7 @@ static String done = "done";
 				  if (age == 0) {
 						sleepMenu();
 						age += 1;
-					  }		  
+					  }	else {	  
 						  // Start of value calibration
 						  if (happiness > 100) {
 							  happiness = 100;
@@ -308,11 +367,6 @@ static String done = "done";
 				  		  } else if (hunger < 0) {
 							  hunger = 0;
 						  }
-						  if (anger > 100) {
-							  anger = 100;
-						  } else if (anger < 0) {
-							  anger = 0;
-						  }
 						  if (tiredness > 100) {
 							  tiredness = 100;
 						  } else if (tiredness < 0) {
@@ -321,10 +375,11 @@ static String done = "done";
 							  state = "tired";
 						  }
 						  // End of value calibration
-						  System.out.println(anger);
-						  System.out.println(happiness);
-						  System.out.println(hunger);
-						  System.out.println(tiredness);
+						  System.out.println(happiness + " " + "Happiness");
+						  System.out.println(hunger +  " " + "Hunger");
+						  System.out.println(tiredness + " " + "Tiredness");
+						  
+						  
 						  // Start of state change
 						  if (tiredness == 100) {
 							  state = "asleep";
@@ -334,13 +389,13 @@ static String done = "done";
 							  deathMenu();
 						  } else if (hunger == 80) {
 							  state = "hungry";
-				  		  } else if (anger == 100) {
+				  		  } else if (happiness == 0) {
 				  			  runAway(); 
-						  } else if (happiness >= 60 && anger < 50) {
+						  } else if (happiness <= 60) {
+							  state = "angry";
+					  	  } else if (happiness > 60) {
 							  state = "happy";  
-						  } else {
-							  state = "asleep";
-						  }
+					  	  }
 						  // End of state change
 
 			  	switch(state) {
@@ -372,18 +427,22 @@ static String done = "done";
 				  	age += 1;
 				  	tiredMenu();
 				  	break;
-
-				  	default:
-
-					  	System.out.println("Illegal state! This should never occur. state is: " + state);
-
-					  	break;
+				  	
+			  	case "angry":
+			  	
+			  		age += 1;
+			  		angerMenu();
+			  		break;
 
 			  	} //end switch statement.
 
 		  	}  //end of while loop
+				  
+		  	}
 
 		  	System.out.println("Deactivating the Tamagotchi");
 		  }
 
 }
+
+  
