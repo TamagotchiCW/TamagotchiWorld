@@ -13,5 +13,9 @@ public class TamagotchiWorld {
 		buggie.nameCreation(name);
 		buggie.mainLoop();
 	}
+	/*
+	This code runs the code for naming the tamagotchi and running the tamagotchi class, which has all the code for the tamagotchi
+	stored within it.
+	*/
 
 }
