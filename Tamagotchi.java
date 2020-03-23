@@ -8,6 +8,16 @@ The code we used as a base for the menu's and the mainLoop were inspired off thi
 This video gave us the outline for the overall structure of this program and helped us a lot in developing it.
 After learning from the video how the code worked and how everything tied together, we started adding our own states and menu's along with
 our own features. This in the end led to this program.
+
+The way the program works, is the main method in the TamagotchiWorld class calls the nameCreation method which takes the name that
+the user entered and names this tamagotchi that. After the tamagotchi has been named all the methods will refer to the tamagotchi
+as this name until it ends. The mainLoop method is then called which is as the name implies the mainLoop in this entire program.
+Everything happens from this loop, first thing the loop does it check the age of the tamagotchi, if the age is 0 (just created),
+then the loop starts the asleepMenu which is our starting menu, from there depending on what the user chooses to do as their next
+action will change the health of the tamagotchi, after the asleepMenu has run for the first time, calibration is done to make sure
+none of the health variables are over 100 or under 0, then it checks what the health variables are at to determine which state the
+tamagotchi will move to. This repeats until the user enters the action for the deactivation of the tamagotchi or the tamagotchi reaches
+one of the Bad Ends, such as running away. This will end the program and the user can either leave or start again from new.
 */
 
 public class Tamagotchi {
@@ -496,12 +506,12 @@ show the current health of the tamagotchi, decide what state the tamagotchi is g
 						  // Start of state change
 						  if (tiredness == 100) {
 							  state = "asleep";
-						  } else if (tiredness >= 70) {
-							  state = "tired";
 						  } else if (hunger >= 100) {
 							  deathMenu();
 						  } else if (hunger == 80) {
 							  state = "hungry";
+						  } else if (tiredness >= 80) {
+							  state = "tired";
 				  		  } else if (happiness == 0) {
 				  			  runAway(); 
 						  } else if (happiness <= 60) {
