@@ -2,14 +2,20 @@ package CW2;
 
 import java.util.*;
 
-
+/*
+The code we used as a base for the menu's and the mainLoop were inspired off this video one of our team members had found
+'https://www.youtube.com/watch?v=wUo3HrziWiM&feature=youtu.be'
+This video gave us the outline for the overall structure of this program and helped us a lot in developing it.
+After learning from the video how the code worked and how everything tied together, we started adding our own states and menu's along with
+our own features. This in the end led to this program.
+*/
 
 public class Tamagotchi {
-
+	/* Code for name implementation */
 	public void nameCreation(String name) {
 		this.name = name;
 	}
-	
+	/* End of name implementation code */
 
  static Scanner console = new Scanner(System.in); //Declare console for input
 
@@ -36,7 +42,16 @@ static String done = "done";
  private String state;
 
 
- 
+ /*
+ Start of sleepMenu code
+1 	= happiness + 20
+ 	= tiredness - 20
+2
+	= tiredness - 40
+3
+	= happiness - 20
+	= tiredness - 40
+ */
  private void sleepMenu() {
 
 	 int action;
@@ -87,9 +102,25 @@ static String done = "done";
 	 }
 
  }
+/* End of sleepMenu code */
 
  
-
+/*
+Start of happyMenu code
+1
+	= happiness + 20
+	= tiredness + 20
+	= hunger + 20
+2
+	= happiness + 40
+	= tiredness + 40
+	= hunger + 20
+3
+	= hunger - 40
+4
+	= happiness - 20
+	= hunger + 20
+*/
   private void happyMenu() {
 
 	  int action;
@@ -147,9 +178,19 @@ static String done = "done";
 		  
 	  }
 
-	  } //end of else if statement
+}
+/* End of happyMenu code */
 
 
+/* 
+Start hungryMenu code
+1
+	= hunger - 40
+	= happiness + 20
+2
+	= hunger + 20
+	= happiness - 20
+*/
    private void hungryMenu() {
 	   int action;
 	   System.out.println(name + " is now starting to feeling hungry and needs feeding.");
@@ -183,8 +224,23 @@ static String done = "done";
 		   state = done;
 	   } //end of else if statement (hungry) state for Tamagotchi
    }
+/* End of hungryMenu code */
 		
 
+/*
+Start of tiredMenu code
+1
+	= happiness - 20
+	= tiredness - 20
+	= hunger + 20
+2
+	= tiredness + 100
+	= hunger + 20
+3
+	= happiness + 20
+	= tiredness + 20
+	= hunger - 20
+*/
    private void tiredMenu() {
 
 	   int action;
@@ -238,7 +294,21 @@ static String done = "done";
 	   
 	   
 }
-   
+/* End of tiredMenu code */
+	
+	
+/*
+Start of angerMenu code
+1
+	= happiness + 40
+	= hunger + 20
+2
+	= happiness - 40
+	= hunger + 20
+3
+	= happiness + 40
+	= hunger - 20
+*/
 	private void angerMenu() {
 		
 		int action;
@@ -284,8 +354,14 @@ static String done = "done";
 			state = done;
 		}
 	}
+/* End of angerMenu code */
 	
 	
+/*
+Start of runAway code
+
+Once this menu is reached isntead of changing the tamagotchi's health, instead the tamagotchi just runs away causing you to have to restart.
+*/
 	private void runAway() {
 		
 		System.out.println ("Your pet got too angry and has run away!");
@@ -294,7 +370,24 @@ static String done = "done";
 		
 		state = done;
 	}
+/* End of runAway code */
+	
 
+/*
+Start of deathMenu code, should be changed, as the tamagotchi doesn't actually die anymore.
+1
+	= Your tamagotchi ends up running away
+2
+	= Your tamagotchi ends up running away
+3
+	= Your tamagotchi ends up running away
+4
+	= Your tamagotchi gives you another chance if you haven't been given one already
+	= hunger - 40
+	= happiness = 40
+4 second time
+	= Your tamagotchi ends up running away
+*/
 	private void deathMenu() {
 		
 		int action;
@@ -353,10 +446,15 @@ static String done = "done";
 		
 			
 	   }
+/* End of deathMenu code */
 
-	   
+	  
+/*
+Start if mainLoop code
 
-	  /* Code to change later */
+This code contains code to calibrate the health of the tamagotchi, make the first menu always be the sleep menu,
+show the current health of the tamagotchi, decide what state the tamagotchi is going to enter, increase the age.
+*/
 	
 	  public void mainLoop() {
 			  
@@ -387,10 +485,13 @@ static String done = "done";
 							  state = "tired";
 						  }
 						  // End of value calibration
+					  
+					  	  // Start of health indicators
+					  	  System.out.println("Age: " + age);
 						  System.out.println(happiness + " " + "Happiness");
 						  System.out.println(hunger +  " " + "Hunger");
 						  System.out.println(tiredness + " " + "Tiredness");
-						  
+					  	  // End of health indicators
 						  
 						  // Start of state change
 						  if (tiredness == 100) {
