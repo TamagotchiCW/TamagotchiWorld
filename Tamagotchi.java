@@ -25,6 +25,8 @@ static double hunger = 0;
 static double tiredness = 0;
 
 static double age = 0;
+
+static int chances = 0;
 	
 static String done = "done";
 
@@ -70,7 +72,6 @@ static String done = "done";
 		 System.out.println(name + " slept peacefully");
 
 		 tiredness -= 40;
-		 sleepMenu();
 
 	 } else if (action == 3) {
 		 
@@ -157,7 +158,7 @@ static String done = "done";
 	   
 	   System.out.println(" 1) Feed " + name + " pet food/water.");
 	   
-	   System.out.println(" 2) Let " + name + " starve.");
+	   System.out.println(" 2) Leave " + name + " alone as their tummy rumbles.");
 	   
 	   System.out.println(" 3) Quit program.");
 	   
@@ -298,43 +299,54 @@ static String done = "done";
 		
 		int action;
 	
-		System.out.println ("The tamagotchi is dying. :( *cry* *sob *sob*");
+		System.out.println (name + " is really hungry");
 		
 		System.out.println ("What would you like to do?");
 		
-		System.out.println (" 1) give the pet its last meal before it dies");
+		System.out.println (" 1) Give it some food");
 		
-        	System.out.println (" 2) let it die all alone");
+        	System.out.println (" 2) Ignore " + name);
 		
-		System.out.println (" 3) just leave it there");
+		System.out.println (" 3) Just leave it there");
 		
-		System.out.println (" 4) wait for it to die then bury it");
+		System.out.println (" 4) Give it some food and apologise for not feeding it in so long");
 			
 			action = console.nextInt();
 		
 		if (action == 1) {
 			
-			System.out.println ("you feed " + name + " its last meal as it slowly dies in your arms");
+			System.out.println ("you feed " + name + ", before it quickly takes the food and runs off, leaving you all alone.");
 			
 			state = done;
 			
 		} else if (action == 2) {
 			
-			System.out.println ("you let " + name + " die all alone." + name + " looks very sad as it dies");
+			System.out.println ("you ignore " + name + " and turn your back on them. When you turn around " + name + " is no where to be seen.");
 			
 			state = done;
 			
 		} else if (action == 3) {
 			
-			System.out.println ("You leave " + name + " there to die and eventually rot.");
+			System.out.println ("You leave " + name + " and you never see it again.");
 			
 			state = done;
 			
 		}else if (action == 4) {
 			
-			System.out.println ( "You wait for " + name + " to die, then bury it using a spade.");
+			if (chances == 0) {
 			
-			state = done;
+				System.out.println ( "You sit down and apologise to " + name + " while feeding it some food. It decides to give you one last chance.");
+			
+				hunger -= 40;
+				happiness = 40;
+			
+			} else {
+				
+				System.out.println ( "Knowing that you failed to feed it even with your last chance, " + name + " leaves and is never seen again." );
+			
+				state = done;
+			
+			}
 		}
 			
 		
@@ -444,5 +456,3 @@ static String done = "done";
 		  }
 
 }
-
-  
